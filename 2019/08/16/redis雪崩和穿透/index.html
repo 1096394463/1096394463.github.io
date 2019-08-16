@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>redis雪崩和穿透 | Q blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="redis雪崩和穿透首先谈谈什么是redis雪崩：在同一时间，大量缓存失效，而新的缓存还没有来得及生成，造成请求直接访问储存层，导致数据库宕机。 解决方法 1.加锁，通过设置的缓存标记查看缓存是否过期，如果过期则加锁，一次只允许一个线程操作数据库（治标不治本，不推荐，除非并发量很小的情况） 2.建立缓存备份，出现雪崩的原因已经谈过，所以只要在备份中不去设置缓存过期时间就能避免这个问题。 3.缓存预">
+  <meta name="description" content="redis雪崩和穿透首先谈谈什么是redis雪崩：在同一时间，大量缓存失效，而新的缓存还没有来得及生成，造成请求直接访问储存层，导致数据库宕机。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis雪崩和穿透">
 <meta property="og:url" content="http://yoursite.com/2019/08/16/redis雪崩和穿透/index.html">
 <meta property="og:site_name" content="Q blogs">
-<meta property="og:description" content="redis雪崩和穿透首先谈谈什么是redis雪崩：在同一时间，大量缓存失效，而新的缓存还没有来得及生成，造成请求直接访问储存层，导致数据库宕机。 解决方法 1.加锁，通过设置的缓存标记查看缓存是否过期，如果过期则加锁，一次只允许一个线程操作数据库（治标不治本，不推荐，除非并发量很小的情况） 2.建立缓存备份，出现雪崩的原因已经谈过，所以只要在备份中不去设置缓存过期时间就能避免这个问题。 3.缓存预">
+<meta property="og:description" content="redis雪崩和穿透首先谈谈什么是redis雪崩：在同一时间，大量缓存失效，而新的缓存还没有来得及生成，造成请求直接访问储存层，导致数据库宕机。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-16T06:36:28.325Z">
+<meta property="og:updated_time" content="2019-08-16T06:50:54.950Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis雪崩和穿透">
-<meta name="twitter:description" content="redis雪崩和穿透首先谈谈什么是redis雪崩：在同一时间，大量缓存失效，而新的缓存还没有来得及生成，造成请求直接访问储存层，导致数据库宕机。 解决方法 1.加锁，通过设置的缓存标记查看缓存是否过期，如果过期则加锁，一次只允许一个线程操作数据库（治标不治本，不推荐，除非并发量很小的情况） 2.建立缓存备份，出现雪崩的原因已经谈过，所以只要在备份中不去设置缓存过期时间就能避免这个问题。 3.缓存预">
+<meta name="twitter:description" content="redis雪崩和穿透首先谈谈什么是redis雪崩：在同一时间，大量缓存失效，而新的缓存还没有来得及生成，造成请求直接访问储存层，导致数据库宕机。">
   
     <link rel="alternative" href="/atom.xml" title="Q blogs" type="application/atom+xml">
   
@@ -179,6 +179,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="redis雪崩和穿透"><a href="#redis雪崩和穿透" class="headerlink" title="redis雪崩和穿透"></a>redis雪崩和穿透</h1><p>首先谈谈什么是redis雪崩：在同一时间，大量缓存失效，而新的缓存还没有来得及生成，造成请求直接访问储存层，导致数据库宕机。</p>
+<a id="more"></a>
+
 <p><strong>解决方法</strong></p>
 <p>1.加锁，通过设置的缓存标记查看缓存是否过期，如果过期则加锁，一次只允许一个线程操作数据库（治标不治本，不推荐，除非并发量很小的情况）</p>
 <p>2.建立缓存备份，出现雪崩的原因已经谈过，所以只要在备份中不去设置缓存过期时间就能避免这个问题。</p>
