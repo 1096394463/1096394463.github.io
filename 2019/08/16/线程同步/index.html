@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Q blogs</title>
+  <title>线程同步 | Q blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="线程同步关于线程问题，大家在学习中可能不会遇到太多，我自己也同样如此，所以本着学习的态度在这里记录一些关于线程同步的问题。 线程同步无非是为了防止多个线程在操作统一个数据时造成数据错误的问题（比如，a线程和b线程同时访问到数据x=10，但是a线程更快，将x减了1。这时，b线程就拿到了错误的数据）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Q blogs">
+<meta property="og:title" content="线程同步">
 <meta property="og:url" content="http://yoursite.com/2019/08/16/线程同步/index.html">
 <meta property="og:site_name" content="Q blogs">
 <meta property="og:description" content="线程同步关于线程问题，大家在学习中可能不会遇到太多，我自己也同样如此，所以本着学习的态度在这里记录一些关于线程同步的问题。 线程同步无非是为了防止多个线程在操作统一个数据时造成数据错误的问题（比如，a线程和b线程同时访问到数据x=10，但是a线程更快，将x减了1。这时，b线程就拿到了错误的数据）">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-16T08:11:28.321Z">
+<meta property="og:updated_time" content="2019-08-16T08:17:22.302Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Q blogs">
+<meta name="twitter:title" content="线程同步">
 <meta name="twitter:description" content="线程同步关于线程问题，大家在学习中可能不会遇到太多，我自己也同样如此，所以本着学习的态度在这里记录一些关于线程同步的问题。 线程同步无非是为了防止多个线程在操作统一个数据时造成数据错误的问题（比如，a线程和b线程同时访问到数据x=10，但是a线程更快，将x减了1。这时，b线程就拿到了错误的数据）">
   
     <link rel="alternative" href="/atom.xml" title="Q blogs" type="application/atom+xml">
@@ -161,9 +161,25 @@
             <article id="post-线程同步" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      线程同步
+    </h1>
+  
+
+        
+        <a href="/2019/08/16/线程同步/" class="archive-article-date">
+  	<time datetime="2019-08-16T08:17:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h1><p>关于线程问题，大家在学习中可能不会遇到太多，我自己也同样如此，所以本着学习的态度在这里记录一些关于线程同步的问题。</p>
+        <hr>
+<h1 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h1><p>关于线程问题，大家在学习中可能不会遇到太多，我自己也同样如此，所以本着学习的态度在这里记录一些关于线程同步的问题。</p>
 <p>线程同步无非是为了防止多个线程在操作统一个数据时造成数据错误的问题（比如，a线程和b线程同时访问到数据x=10，但是a线程更快，将x减了1。这时，b线程就拿到了错误的数据）</p>
 <a id="more"></a>
 
@@ -271,18 +287,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/16/商品秒杀的整体思路/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/08/16/redis雪崩和穿透/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">redis雪崩和穿透</div>
+    <a href="/2019/08/16/商品秒杀的整体思路/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">商品秒杀的整体思路</div>
       <i class="icon-circle-right"></i>
     </a>
   
