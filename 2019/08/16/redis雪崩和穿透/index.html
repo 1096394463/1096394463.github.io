@@ -9,13 +9,14 @@
   <title>redis雪崩和穿透 | Q blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="redis雪崩和穿透首先谈谈什么是redis雪崩：在同一时间，大量缓存失效，而新的缓存还没有来得及生成，造成请求直接访问储存层，导致数据库宕机。">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis雪崩和穿透">
 <meta property="og:url" content="http://yoursite.com/2019/08/16/redis雪崩和穿透/index.html">
 <meta property="og:site_name" content="Q blogs">
 <meta property="og:description" content="redis雪崩和穿透首先谈谈什么是redis雪崩：在同一时间，大量缓存失效，而新的缓存还没有来得及生成，造成请求直接访问储存层，导致数据库宕机。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-16T06:50:54.950Z">
+<meta property="og:updated_time" content="2019-08-18T06:16:51.019Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis雪崩和穿透">
 <meta name="twitter:description" content="redis雪崩和穿透首先谈谈什么是redis雪崩：在同一时间，大量缓存失效，而新的缓存还没有来得及生成，造成请求直接访问储存层，导致数据库宕机。">
@@ -60,6 +61,8 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/">java</a></li>
 	        
 				<li><a href="/">随笔</a></li>
 	        
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -138,12 +143,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">java</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -219,6 +226,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -431,6 +449,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

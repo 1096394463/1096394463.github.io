@@ -6,20 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>线程同步 | Q blogs</title>
+  <title>java | Q blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="线程同步关于线程问题，大家在学习中可能不会遇到太多，我自己也同样如此，所以本着学习的态度在这里记录一些关于线程同步的问题。 线程同步无非是为了防止多个线程在操作统一个数据时造成数据错误的问题（比如，a线程和b线程同时访问到数据x=10，但是a线程更快，将x减了1。这时，b线程就拿到了错误的数据）">
-<meta name="keywords" content="java">
-<meta property="og:type" content="article">
-<meta property="og:title" content="线程同步">
-<meta property="og:url" content="http://yoursite.com/2019/08/16/线程同步/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="java">
+<meta property="og:url" content="http://yoursite.com/java/index.html">
 <meta property="og:site_name" content="Q blogs">
-<meta property="og:description" content="线程同步关于线程问题，大家在学习中可能不会遇到太多，我自己也同样如此，所以本着学习的态度在这里记录一些关于线程同步的问题。 线程同步无非是为了防止多个线程在操作统一个数据时造成数据错误的问题（比如，a线程和b线程同时访问到数据x=10，但是a线程更快，将x减了1。这时，b线程就拿到了错误的数据）">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-18T06:14:27.406Z">
+<meta property="og:updated_time" content="2019-08-18T06:10:56.991Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="线程同步">
-<meta name="twitter:description" content="线程同步关于线程问题，大家在学习中可能不会遇到太多，我自己也同样如此，所以本着学习的态度在这里记录一些关于线程同步的问题。 线程同步无非是为了防止多个线程在操作统一个数据时造成数据错误的问题（比如，a线程和b线程同时访问到数据x=10，但是a线程更快，将x减了1。这时，b线程就拿到了错误的数据）">
+<meta name="twitter:title" content="java">
   
     <link rel="alternative" href="/atom.xml" title="Q blogs" type="application/atom+xml">
   
@@ -165,43 +161,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-线程同步" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      线程同步
+      java
     </h1>
   
 
         
-        <a href="/2019/08/16/线程同步/" class="archive-article-date">
-  	<time datetime="2019-08-16T08:17:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
+        <a href="/java/index.html" class="archive-article-date">
+  	<time datetime="2019-08-18T06:10:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h1 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h1><p>关于线程问题，大家在学习中可能不会遇到太多，我自己也同样如此，所以本着学习的态度在这里记录一些关于线程同步的问题。</p>
-<p>线程同步无非是为了防止多个线程在操作统一个数据时造成数据错误的问题（比如，a线程和b线程同时访问到数据x=10，但是a线程更快，将x减了1。这时，b线程就拿到了错误的数据）</p>
-<a id="more"></a>
-
-<h2 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h2><h6 id="1-同步锁，这个应该是比较基础的同步手段了，缺点非常明显，效率低。"><a href="#1-同步锁，这个应该是比较基础的同步手段了，缺点非常明显，效率低。" class="headerlink" title="1.同步锁，这个应该是比较基础的同步手段了，缺点非常明显，效率低。"></a>1.同步锁，这个应该是比较基础的同步手段了，缺点非常明显，效率低。</h6><p>锁的机制很容易理解，就是将需要同步的代码锁起来，一次只能有一个线程执行。</p>
-<p>使用synchronized关键字修饰方法，就是将整个方法加锁，但不建议这么做，同步是一件很耗费资源的事情，同步的内容越少越好，最好用这个方法修饰代码块。</p>
-<p>ps 这个关键字不止能修饰代码块和方法，想要详细了解可以自行搜索</p>
-<h6 id="2-wait和notify"><a href="#2-wait和notify" class="headerlink" title="2.wait和notify"></a>2.wait和notify</h6><p>wait():使线程进入等待状态，并释放自己的锁资源</p>
-<p>notify():唤醒线程，不过，在默认情况下，此方法不会唤醒某个具体线程，而是由jvm决定</p>
-<h6 id="3-特殊域变量volatile"><a href="#3-特殊域变量volatile" class="headerlink" title="3.特殊域变量volatile"></a>3.特殊域变量volatile</h6><p>volatile用于修饰可能有线程安全的变量，是一种免锁的同步机制。</p>
-<p>volatile所修饰的变量被修改时，cpu会通知其他cpu将该变量的缓存置为无效状态，当其他cpu读取这个变量时，会发现自己缓存中的变量处于无效桩体，就会重新读取。 关于volatile，我自己也不太了解，以后有深入的了解后，会重新理一下。</p>
-<h6 id="4-重入锁实现线程同步"><a href="#4-重入锁实现线程同步" class="headerlink" title="4.重入锁实现线程同步"></a>4.重入锁实现线程同步</h6><p>ReentrantLock() : 创建一个ReentrantLock实例<br>lock() : 获得锁<br>unlock() : 释放锁 </p>
-<h6 id="5-ThreadLocal"><a href="#5-ThreadLocal" class="headerlink" title="5.ThreadLocal"></a>5.ThreadLocal</h6><p>每一个本地线程都会拥有一个独立的变量副本，可以进行随意修改而不影响其他线程。本地线程使用map保存，key为线程名，v为变量副本。</p>
-<h6 id="6-阻塞队列实现线程同步"><a href="#6-阻塞队列实现线程同步" class="headerlink" title="6.阻塞队列实现线程同步"></a>6.阻塞队列实现线程同步</h6><p>关键就在于队列和阻塞，举个例子，当队列为空时就像是饭店还没有上菜，所以你得等着（阻塞）；而当队列满时，就像是给你上了一桌子菜，饭店也就不需要在给你上菜了（阻塞）</p>
-<h6 id="7-使用原子变量实现线程同步"><a href="#7-使用原子变量实现线程同步" class="headerlink" title="7.使用原子变量实现线程同步"></a>7.使用原子变量实现线程同步</h6><p>要求读取变量，修改变量，保存变量是一个整体，要么都成功，要么都失败。是不是很像数据库中的事务？</p>
-
+        
       
 
       
@@ -230,17 +210,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -291,7 +260,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/16/线程同步/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/java/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -303,16 +272,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-  
-    <a href="/2019/08/16/商品秒杀的整体思路/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">商品秒杀的整体思路</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -334,7 +293,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#线程同步"><span class="toc-number">1.</span> <span class="toc-text">线程同步</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#同步方法"><span class="toc-number">1.1.</span> <span class="toc-text">同步方法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-同步锁，这个应该是比较基础的同步手段了，缺点非常明显，效率低。"><span class="toc-number">1.1.0.0.0.1.</span> <span class="toc-text">1.同步锁，这个应该是比较基础的同步手段了，缺点非常明显，效率低。</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-wait和notify"><span class="toc-number">1.1.0.0.0.2.</span> <span class="toc-text">2.wait和notify</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-特殊域变量volatile"><span class="toc-number">1.1.0.0.0.3.</span> <span class="toc-text">3.特殊域变量volatile</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-重入锁实现线程同步"><span class="toc-number">1.1.0.0.0.4.</span> <span class="toc-text">4.重入锁实现线程同步</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-ThreadLocal"><span class="toc-number">1.1.0.0.0.5.</span> <span class="toc-text">5.ThreadLocal</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6-阻塞队列实现线程同步"><span class="toc-number">1.1.0.0.0.6.</span> <span class="toc-text">6.阻塞队列实现线程同步</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#7-使用原子变量实现线程同步"><span class="toc-number">1.1.0.0.0.7.</span> <span class="toc-text">7.使用原子变量实现线程同步</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -376,7 +335,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
