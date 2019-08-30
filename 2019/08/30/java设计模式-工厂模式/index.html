@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: springboot | Q blogs</title>
+  <title>java设计模式--工厂模式 | Q blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Q blogs">
-<meta property="og:url" content="http://yoursite.com/tags/springboot/index.html">
+  <meta name="description" content="工厂模式">
+<meta name="keywords" content="设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java设计模式--工厂模式">
+<meta property="og:url" content="http://yoursite.com/2019/08/30/java设计模式-工厂模式/index.html">
 <meta property="og:site_name" content="Q blogs">
+<meta property="og:description" content="工厂模式">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-30T08:41:41.566Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Q blogs">
+<meta name="twitter:title" content="java设计模式--工厂模式">
+<meta name="twitter:description" content="工厂模式">
   
     <link rel="alternative" href="/atom.xml" title="Q blogs" type="application/atom+xml">
   
@@ -158,71 +163,205 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java设计模式-工厂模式" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/29/springboot多模块打包问题/" class="archive-article-date">
-  	<time datetime="2019-08-29T14:48:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/29/springboot多模块打包问题/">springboot多模块打包问题</a>
+    <h1 class="article-title" itemprop="name">
+      java设计模式--工厂模式
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/08/30/java设计模式-工厂模式/" class="archive-article-date">
+  	<time datetime="2019-08-30T07:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><a id="more"></a>
+
+<p>简单工厂模式：提供创建对象的功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">interface Computer&#123;</span><br><span class="line">    String getName();</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">public class Apple implement Computer&#123;</span><br><span class="line">	public String getName()&#123;</span><br><span class="line">	return &quot;苹果&quot;;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Alienware implement Computer&#123;</span><br><span class="line">	public String getName()&#123;</span><br><span class="line">	return &quot;外星人&quot;;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class SimpleFactory&#123;</span><br><span class="line">	public Computer getComputer(String computerName)&#123;</span><br><span class="line">    if(computerName.equals(&quot;apple&quot;))&#123;</span><br><span class="line">    	return new Apple();</span><br><span class="line">    &#125;else if(computerName.equals(&quot;alienware&quot;))&#123;</span><br><span class="line">    	return new Alienware();</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">    system.out.println(&quot;该工厂暂时不生产此设备！&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这就是简单工厂了，以后我们要获得苹果电脑和外星人电脑对象时，就可以在新建工厂后直接通过名字调用对应对象。</p>
+<p>不过缺点也显而易见了，每多添加一个商品，我们就需要在工厂中去添加，耦合度太高，这样的设计很不友好。所以工厂方法就出来了。</p>
+<p>工厂方法：定义一个生产产品的工厂接口，每一个品牌新建一个工厂</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public interface Factory&#123;</span><br><span class="line">	Computer getComputer();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class AppleFactory implement Factory&#123;</span><br><span class="line">	public Apple getComputer()&#123;</span><br><span class="line">   return new Apple();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> public class AlienwareFactory implement Factory&#123;</span><br><span class="line">	public Apple getComputer()&#123;</span><br><span class="line">   return new Alienware();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样我们在新增品牌时就不再需要去修改工厂，只需要加新的就行了。可是这个还是有问题，一个工厂就生成一个产品？是不是有点。。。所以，抽象工厂站了出来。</p>
+<p>抽象工厂模式：定义一个抽象的工厂类，让一个工厂能生产一系列产品。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">//我们再加一个商品，定义一个手机接口</span><br><span class="line">public interface Phone&#123;</span><br><span class="line">	String getName();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class IPhone implement Phone&#123;</span><br><span class="line">	public String getName()&#123;</span><br><span class="line">	return &quot;苹果手机&quot;;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class APhone implement Phone&#123;</span><br><span class="line">	public String getName()&#123;</span><br><span class="line">	return &quot;外星人手机&quot;;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//定义抽象工厂</span><br><span class="line">public abstract Factory&#123;</span><br><span class="line">//生成电脑</span><br><span class="line">	Computer getComputer();</span><br><span class="line">//生产手机</span><br><span class="line">	 Phone getPhone();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public AppleFactory extend Factory&#123;</span><br><span class="line">	public Computer getComputer()&#123;</span><br><span class="line">    return new Apple();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public Phone getPhone()&#123;</span><br><span class="line">    </span><br><span class="line">    return new IPhone();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public AlienwareFactory extend Factory&#123;</span><br><span class="line">	public Computer getComputer()&#123;</span><br><span class="line">    return new Alienware();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public Phone getPhone()&#123;</span><br><span class="line">    </span><br><span class="line">    return new APhone();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后这个抽象工厂我自己的理解还不太深刻，下来再去细看一下</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢支持<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/mistaken//" class="article-tag-list-link color4">mistaken</a>
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/30/java设计模式-工厂模式/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/08/29/springboot多模块打包问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">springboot多模块打包问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#工厂模式"><span class="toc-number">1.</span> <span class="toc-text">工厂模式</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -245,9 +384,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
