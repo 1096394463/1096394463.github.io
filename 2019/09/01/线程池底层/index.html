@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>商品秒杀的整体思路 | Q blogs</title>
+  <title>线程池底层 | Q blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="商品秒杀的整体思路想必大家都接触过商品秒杀吧！不知道你们有没有成功抢到过，反正我是从来没有过（无奈）。那么大家知道商品秒杀的逻辑是什么吗？知道这个会不会有助于你提高秒杀概率呢？ 1.这里说的只是我了解的一部分，某宝某东这种具体实现，我肯定是不知道的。">
-<meta name="keywords" content="java">
+  <meta name="description" content="java线程池">
+<meta name="keywords" content="线程池">
 <meta property="og:type" content="article">
-<meta property="og:title" content="商品秒杀的整体思路">
-<meta property="og:url" content="http://yoursite.com/2019/08/16/商品秒杀的整体思路/index.html">
+<meta property="og:title" content="线程池底层">
+<meta property="og:url" content="http://yoursite.com/2019/09/01/线程池底层/index.html">
 <meta property="og:site_name" content="Q blogs">
-<meta property="og:description" content="商品秒杀的整体思路想必大家都接触过商品秒杀吧！不知道你们有没有成功抢到过，反正我是从来没有过（无奈）。那么大家知道商品秒杀的逻辑是什么吗？知道这个会不会有助于你提高秒杀概率呢？ 1.这里说的只是我了解的一部分，某宝某东这种具体实现，我肯定是不知道的。">
+<meta property="og:description" content="java线程池">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-18T06:45:48.041Z">
+<meta property="og:updated_time" content="2019-09-01T06:50:28.473Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="商品秒杀的整体思路">
-<meta name="twitter:description" content="商品秒杀的整体思路想必大家都接触过商品秒杀吧！不知道你们有没有成功抢到过，反正我是从来没有过（无奈）。那么大家知道商品秒杀的逻辑是什么吗？知道这个会不会有助于你提高秒杀概率呢？ 1.这里说的只是我了解的一部分，某宝某东这种具体实现，我肯定是不知道的。">
+<meta name="twitter:title" content="线程池底层">
+<meta name="twitter:description" content="java线程池">
   
     <link rel="alternative" href="/atom.xml" title="Q blogs" type="application/atom+xml">
   
@@ -163,39 +163,33 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-商品秒杀的整体思路" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-线程池底层" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      商品秒杀的整体思路
+      线程池底层
     </h1>
   
 
         
-        <a href="/2019/08/16/商品秒杀的整体思路/" class="archive-article-date">
-  	<time datetime="2019-08-16T08:17:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
+        <a href="/2019/09/01/线程池底层/" class="archive-article-date">
+  	<time datetime="2019-09-01T06:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h1 id="商品秒杀的整体思路"><a href="#商品秒杀的整体思路" class="headerlink" title="商品秒杀的整体思路"></a>商品秒杀的整体思路</h1><p>想必大家都接触过商品秒杀吧！不知道你们有没有成功抢到过，反正我是从来没有过（无奈）。那么大家知道商品秒杀的逻辑是什么吗？知道这个会不会有助于你提高秒杀概率呢？</p>
-<p><strong>1.这里说的只是我了解的一部分，某宝某东这种具体实现，我肯定是不知道的。</strong></p>
-<a id="more"></a>
-
-<h6 id="1-1抢购前"><a href="#1-1抢购前" class="headerlink" title="1.1抢购前"></a>1.1抢购前</h6><p>这个时候，想必很多人已经进入秒杀界面，一遍又一遍的刷新页面了吧，其实这些都是无效刷新。你想想，秒杀开始时，有成千上万的人在刷新着页面，服务器不可能这么频繁的去处理你的刷新。所以这个时候的页面是做了静态化处理的，所以你不断刷新，访问的其实只是一个提前生成的本地页面。</p>
-<h6 id="1-2抢购开始"><a href="#1-2抢购开始" class="headerlink" title="1.2抢购开始"></a>1.2抢购开始</h6><p>当抢购开始时，无数的请求涌向服务器，假如有一百万条请求，而秒杀商品只有一百件，服务器不可能去访问一百万次数据库吧（数据库是很脆弱的！）。这里我们的数据库肯定只操作一百次，其他的都是无效操作。</p>
-<p>所以，针对这种高并发情况，首先应该想到的是将请求拦截在上游。怎么办呢？我们怎么在一百万人里挑出这一百个幸运儿呢？</p>
-<p>其实还是看谁快，我们可以使用redis（不懂的就当他是个容器就行）。在redis中保存商品id和库存，然后给请求过来的人纷发令牌（这个令牌也要在redis中保存，做校验），每给一个令牌就将redis中的库存减1，直到减为0，就不再纷发令牌。拿到令牌的人就有购买资格了。</p>
-<p>不过这里也有一个问题，大量的请求其实对redis也会造成负担，尤其是当令牌纷发完后，后面的压力其实都是没有必要的，所以我们得想个办法。</p>
-<p>缓存标记，在请求和redis之间设置一道防护，只要redis中还有库存，缓存标记就为fase；redis中库存减完之后，将缓存标记置为true。只有false才放行，这样后面的请求就到达不了redis了。</p>
-<p>在用户下单后，还需要将令牌销毁，不然他就可以一直用这个令牌购买东西了。</p>
-<p>这里只是说了一下大概的东西，还有很多的细节就不一一赘述了。</p>
+        <h4 id="java线程池"><a href="#java线程池" class="headerlink" title="java线程池"></a>java线程池</h4><a id="more"></a>
+<p>线程池的底层就是阻塞队列，既然有阻塞队列那肯定就有非阻塞队列，那么这两个有什么区别呢？<br>阻塞队列：（生产者消费者模式）当队列满时，生产线程将会等待，当队列为空时，消费者线程也会等待。<br>普通队列：队列满时，后续数据会丢失</p>
+<p><strong>java中新建线程池有四种方式，而这四种线程池也有着自己的特性</strong></p>
+<p>1.缓存线程池，newCachedThreadPool<br>2.固定大小线程池，newFixedThreadPool<br>3.定时线程池，newScheduledThreadPool<br>4.单利线程池，newSingleThreadExecutor</p>
+<p>这四种线程池都是通过封装ThreadPoolExecutor构造器而来，所以首先要了解这个构造器中的参数。</p>
+<p>1.int corePoolSIze，核心线程数<br>2.int maximumPoolSize 最大线程数<br>3.long keepAliveTime 最大闲置时间，超出核心线程池，小于最大线程池的线程会在设定的闲置时间后释放<br>4.TimeUnit unit 设置上个参数的时间单位<br>5.阻塞队列，核心线程池满后将会将任务放入阻塞队列<br>6.RejectedExecutionHandler handler 当阻塞队列满，且最大线程池也满后，会执行设置好的策略</p>
+<p>线程池的运行流程：任务来时，先判断核心线程是否已满，未满就创建线程执行任务，已满就查看队列是否已满；如果队列未满，就会创建任务储存在队列，已满就会去查看最大线程池是否已满；未满就会创建线程执行任务，已满就会拒绝任务使用设定好的策略</p>
 
       
 
@@ -230,7 +224,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线程池</a>
         		</li>
       		
 		</ul>
@@ -297,7 +291,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/16/商品秒杀的整体思路/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/01/线程池底层/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -311,18 +305,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/16/线程同步/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          线程同步
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/08/16/redis雪崩和穿透/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">redis雪崩和穿透</div>
+    <a href="/2019/08/30/java设计模式-工厂模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java设计模式--工厂模式</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -349,7 +334,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#商品秒杀的整体思路"><span class="toc-number">1.</span> <span class="toc-text">商品秒杀的整体思路</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-1抢购前"><span class="toc-number">1.0.0.0.0.1.</span> <span class="toc-text">1.1抢购前</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#1-2抢购开始"><span class="toc-number">1.0.0.0.0.2.</span> <span class="toc-text">1.2抢购开始</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#java线程池"><span class="toc-number">1.</span> <span class="toc-text">java线程池</span></a></li></ol>
                     </div>
                 </span>
             </div>
