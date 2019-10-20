@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>我的第一篇博客 | Q blogs</title>
+  <title>类加载器 | Q blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hello第一次使用hexo搭建个人博客感觉还不错，就是不知道格式该怎么弄？？">
+  <meta name="description" content="类加载器： 顾名思义，就是负责所有类的加载，所有被加载到内存中的类都会生成一个java.lang.Class实例对象。一个类只会被加载一次（以全限定名和其类加载器作为唯一标识）">
+<meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇博客">
-<meta property="og:url" content="http://yoursite.com/2019/08/15/我的第一篇博客/index.html">
+<meta property="og:title" content="类加载器">
+<meta property="og:url" content="http://yoursite.com/2019/10/20/类加载器/index.html">
 <meta property="og:site_name" content="Q blogs">
-<meta property="og:description" content="hello第一次使用hexo搭建个人博客感觉还不错，就是不知道格式该怎么弄？？">
+<meta property="og:description" content="类加载器： 顾名思义，就是负责所有类的加载，所有被加载到内存中的类都会生成一个java.lang.Class实例对象。一个类只会被加载一次（以全限定名和其类加载器作为唯一标识）">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-15T12:44:21.459Z">
+<meta property="og:updated_time" content="2019-10-20T07:50:24.543Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的第一篇博客">
-<meta name="twitter:description" content="hello第一次使用hexo搭建个人博客感觉还不错，就是不知道格式该怎么弄？？">
+<meta name="twitter:title" content="类加载器">
+<meta name="twitter:description" content="类加载器： 顾名思义，就是负责所有类的加载，所有被加载到内存中的类都会生成一个java.lang.Class实例对象。一个类只会被加载一次（以全限定名和其类加载器作为唯一标识）">
   
     <link rel="alternative" href="/atom.xml" title="Q blogs" type="application/atom+xml">
   
@@ -162,27 +163,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-我的第一篇博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-类加载器" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      我的第一篇博客
+      类加载器
     </h1>
   
 
         
-        <a href="/2019/08/15/我的第一篇博客/" class="archive-article-date">
-  	<time datetime="2019-08-15T09:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-15</time>
+        <a href="/2019/10/20/类加载器/" class="archive-article-date">
+  	<time datetime="2019-10-20T07:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>hello<br>第一次使用hexo搭建个人博客<br>感觉还不错，就是不知道格式该怎么弄？？</p>
+        <p>类加载器：</p>
+<p>顾名思义，就是负责所有类的加载，所有被加载到内存中的类都会生成一个java.lang.Class实例对象。一个类只会被加载一次（以全限定名和其类加载器作为唯一标识）</p>
+<a id="more"></a>
+
+<p>jvm预定义三种类加载器</p>
+<p>1.启动类加载器：用于加载java的核心类，无法被java程序直接引用</p>
+<p>2.扩展类加载器：它负责加载JRE的扩展目录，lib/ext或者由java.ext.dirs系统属性指定的目录中的JAR包的类。由Java语言实现，父类加载器为null。</p>
+<p>3.系统类加载器：它负责在JVM启动时加载来自Java命令的-classpath选项、java.class.path系统属性，或者CLASSPATH换将变量所指定的JAR包和类路径</p>
+<p>4.自定义类加载器：用户通过继承java.lang.ClassLoader类实现</p>
+<p>类加载机制：</p>
+<p>全盘负责：当一个类加载器负责加载某个Class时，则该Class所依赖和引用的其他Class也由该类加载器负责加载，除非显示的使用另一个类加载器来载入</p>
+<p>双亲委派：一个类加载器收到类加载请求，他不会自己先去加载，而是将请求委托给父类加载器去执行，如果父类加载器还存在父类加载器，则进一步向上委托，递归调用（最上层为启动类加载器），如果父类加载器可以完成加载任务，则返回成功，当父类加载器无法完成加载任务时，子类才会去自己完成。</p>
+<p>缓存机制：他会将所有加载过的Class都缓存起来，当程序用到某个Class时，直接从缓存区搜寻，只有当缓冲区没有时才会去加载。这也是为什么我们修改了代码后需要重启JVM。</p>
 
       
 
@@ -212,7 +225,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -262,7 +297,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/15/我的第一篇博客/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/20/类加载器/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -276,18 +311,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/16/redis雪崩和穿透/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          redis雪崩和穿透
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/08/15/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2019/10/20/类加载过程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">类加载过程</div>
       <i class="icon-circle-right"></i>
     </a>
   
