@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>线程池底层 | Q blogs</title>
+  <title>ffmpeg | Q blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java线程池">
-<meta name="keywords" content="线程池">
+  <meta name="description" content="ffmpeg的学习和使用,只是做简单使用，没有进行深度学习 官方文档http://www.ffmpeg.org/ffmpeg.html">
+<meta name="keywords" content="ffmpeg">
 <meta property="og:type" content="article">
-<meta property="og:title" content="线程池底层">
-<meta property="og:url" content="http://yoursite.com/2019/09/01/线程池底层/index.html">
+<meta property="og:title" content="ffmpeg">
+<meta property="og:url" content="http://yoursite.com/2019/12/10/ffmpeg/index.html">
 <meta property="og:site_name" content="Q blogs">
-<meta property="og:description" content="java线程池">
+<meta property="og:description" content="ffmpeg的学习和使用,只是做简单使用，没有进行深度学习 官方文档http://www.ffmpeg.org/ffmpeg.html">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-01T06:50:28.473Z">
+<meta property="og:updated_time" content="2019-12-10T07:12:40.543Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="线程池底层">
-<meta name="twitter:description" content="java线程池">
+<meta name="twitter:title" content="ffmpeg">
+<meta name="twitter:description" content="ffmpeg的学习和使用,只是做简单使用，没有进行深度学习 官方文档http://www.ffmpeg.org/ffmpeg.html">
   
     <link rel="alternative" href="/atom.xml" title="Q blogs" type="application/atom+xml">
   
@@ -163,33 +163,82 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-线程池底层" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ffmpeg" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      线程池底层
+      ffmpeg
     </h1>
   
 
         
-        <a href="/2019/09/01/线程池底层/" class="archive-article-date">
-  	<time datetime="2019-09-01T06:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
+        <a href="/2019/12/10/ffmpeg/" class="archive-article-date">
+  	<time datetime="2019-12-10T07:12:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="java线程池"><a href="#java线程池" class="headerlink" title="java线程池"></a>java线程池</h4><a id="more"></a>
-<p>线程池的底层就是阻塞队列，既然有阻塞队列那肯定就有非阻塞队列，那么这两个有什么区别呢？<br>阻塞队列：（生产者消费者模式）当队列满时，生产线程将会等待，当队列为空时，消费者线程也会等待。<br>普通队列：队列满时，后续数据会丢失</p>
-<p><strong>java中新建线程池有四种方式，而这四种线程池也有着自己的特性</strong></p>
-<p>1.缓存线程池，newCachedThreadPool<br>2.固定大小线程池，newFixedThreadPool<br>3.定时线程池，newScheduledThreadPool<br>4.单利线程池，newSingleThreadExecutor</p>
-<p>这四种线程池都是通过封装ThreadPoolExecutor构造器而来，所以首先要了解这个构造器中的参数。</p>
-<p>1.int corePoolSIze，核心线程数<br>2.int maximumPoolSize 最大线程数<br>3.long keepAliveTime 最大闲置时间，超出核心线程池，小于最大线程池的线程会在设定的闲置时间后释放<br>4.TimeUnit unit 设置上个参数的时间单位<br>5.阻塞队列，核心线程池满后将会将任务放入阻塞队列<br>6.RejectedExecutionHandler handler 当阻塞队列满，且最大线程池也满后，会执行设置好的策略</p>
-<p>线程池的运行流程：任务来时，先判断核心线程是否已满，未满就创建线程执行任务，已满就查看队列是否已满；如果队列未满，就会创建任务储存在队列，已满就会去查看最大线程池是否已满；未满就会创建线程执行任务，已满就会拒绝任务使用设定好的策略</p>
+        <p>ffmpeg的学习和使用,只是做简单使用，没有进行深度学习</p>
+<p>官方文档<a href="http://www.ffmpeg.org/ffmpeg.html" target="_blank" rel="noopener">http://www.ffmpeg.org/ffmpeg.html</a></p>
+<a id="more"></a>
+
+<p><strong>是什么？</strong></p>
+<p>是一套可以用来记录、转换数字音频、视频，并能将其转化为流的开源计算机程序。采用LGPL或GPL许可证。它提供了录制、转换以及流化音视频的完整解决方案。它包含了非常先进的音频/视频编解码库libavcodec，为了保证高可移植性和编解码质量，libavcodec里很多code都是从头开发的</p>
+<p>以上是官方解释，我自己觉得其实就是一个用来操作视频音频的东西，可以将他们进行流化用于传输。</p>
+<p><strong>ffmpeg每个输出的转码过程</strong></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">|       |            |              |</span><br><span class="line">| input |  demuxer   | encoded data |   decoder</span><br><span class="line">| file  | ---------&gt; | packets      | -----+</span><br><span class="line">|_______|            |______________|      |</span><br><span class="line">                                           v</span><br><span class="line">                                       _________</span><br><span class="line">                                      |         |</span><br><span class="line">                                      | decoded |</span><br><span class="line">                                      | frames  |</span><br><span class="line">                                      |_________|</span><br><span class="line"> ________             ______________       |</span><br><span class="line">|        |           |              |      |</span><br><span class="line">| output | &lt;-------- | encoded data | &lt;----+</span><br><span class="line">| file   |   muxer   | packets      |   encoder</span><br><span class="line">|________|           |______________|</span><br></pre></td></tr></table></figure>
+
+<p>我用到ffmpeg主要是做推流，录制，截图等功能，所以主要看看这一块</p>
+<p><strong>推流</strong></p>
+<p>ffmpeg  -rtsp_transport tcp -i rtsp://视频源 -f flv -r 30 -s 640x360 -b:v 750k -vcodec libx264 -acodec copy “rtmp://localhost:1935/hls/camera1”</p>
+<p>-rtsp_transport tcp：默认是使用udp，这个是使用tcp</p>
+<p>-i：输入，后面接摄像头地址或者视频地址</p>
+<p>-f：输出视频格式</p>
+<p>-r：帧率（-re这个参数是指按原视频的帧数）</p>
+<p>-s：帧大小</p>
+<p>-b：v 码率</p>
+<p>-vcodec：视频编解码格式</p>
+<p>-acodec：音频编解码格式，使用copy是按照原视频</p>
+<p>最后跟推流地址</p>
+<p>hls相当于是你配置文件中配置的模块</p>
+<p>camera1就是你自己给这个流命的名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">application hls &#123;</span><br><span class="line">            live on;</span><br><span class="line">            hls on;</span><br><span class="line">            hls_path /data/cache/hls;</span><br><span class="line">            hls_variant _720p2628kbs BANDWIDTH=2628000,RESOLUTION=1280x720;</span><br><span class="line">            hls_variant _360p878kbs BANDWIDTH=878000,RESOLUTION=640x360;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>推流后使用推流地址可以进行拉流观看，也可以使用http协议与配置文件有关</p>
+<p>location /hls {<br>            types {<br>                application/vnd.apple.mpegurl m3u8;<br>                video/mp2t ts;<br>            }</p>
+<p>​    比如有这个配置，就可以使用http接服务器ip加上你监听的端口加模块名+流名+.m3u8进行观看</p>
+<p>如果要用java代码进行开发需要引入比人封装的ffmpeg客户端</p>
+<p>git地址：<a href="https://github.com/bramp/ffmpeg-cli-wrapper" target="_blank" rel="noopener">https://github.com/bramp/ffmpeg-cli-wrapper</a></p>
+<p>文档地址：<a href="https://bramp.github.io/ffmpeg-cli-wrapper/" target="_blank" rel="noopener">https://bramp.github.io/ffmpeg-cli-wrapper/</a></p>
+<p>这里还有一个问题没有解决，使用java代码推流时会出现断流情况</p>
+<p><strong>截图</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">命令：`ffmpeg -rtsp_transport tcp -i rtsp:地址 -ss 10 -vframes 1 -f image2 /tmp/a.jpg`</span><br></pre></td></tr></table></figure>
+
+<p>-ss:代表要截取的的图片在视频中的位置，后面接数字，秒为单位 </p>
+<p>-f：接image2  代表输出为图片</p>
+<p>-vframes：接1代表截1帧</p>
+<p>最后跟上图片保存路径和名称</p>
+<p><strong>录制，断流，推拉流重定向</strong></p>
+<p>ngx_rtmp_control_module 模块</p>
+<p><strong>模块功能描述</strong></p>
+<ul>
+<li>record 录制功能</li>
+<li>drop 断流功能，涉黄涉暴力的话可以通过这个方式断开服务端的推流</li>
+<li>redirect 对推拉流进行重定向功能</li>
+</ul>
+<p><strong>配置示例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       88;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">location /control &#123;</span><br><span class="line">    rtmp_control all; #可以配置all/record/redirect/drop</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">rtmp &#123;</span><br><span class="line">    server &#123;</span><br><span class="line">    listen 1935;</span><br><span class="line"></span><br><span class="line">application test &#123;</span><br><span class="line">    live on;</span><br><span class="line">    recorder rec1 &#123;</span><br><span class="line">       record all manual;</span><br><span class="line">       record_suffix all.flv;</span><br><span class="line">       record_path /tmp/rec;</span><br><span class="line">       record_unique on;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>}</p>
+<p>通过curl进行控制</p>
+<p>drop<br>curl <a href="http://localhost:88/control/drop/publisher?app=live&amp;name=test" target="_blank" rel="noopener">http://localhost:88/control/drop/publisher?app=live&amp;name=test</a> 断开推流，拉流不断<br>curl <a href="http://localhost:88/control/drop/client?app=live&amp;name=test" target="_blank" rel="noopener">http://localhost:88/control/drop/client?app=live&amp;name=test</a> 断开所有的推拉流<br>curl <a href="http://localhost:88/control/drop/client?app=live&amp;name=test&amp;clientid=1" target="_blank" rel="noopener">http://localhost:88/control/drop/client?app=live&amp;name=test&amp;clientid=1</a> 断开连接号为1的拉流<br>curl <a href="http://localhost:88/control/drop/client?app=live&amp;name=test&amp;addr=192.168.0.1" target="_blank" rel="noopener">http://localhost:88/control/drop/client?app=live&amp;name=test&amp;addr=192.168.0.1</a> 断开指定客户端ip地址的拉流<br>record：<br>curl <a href="http://localhost:88/control/record/start?app=live&amp;name=test&amp;&amp;rec=rec1" target="_blank" rel="noopener">http://localhost:88/control/record/start?app=live&amp;name=test&amp;&amp;rec=rec1</a> 开启录制流名为test，且在录制机rec1下面的流<br>curl <a href="http://localhost:88/control/record/stop?app=live&amp;name=test&amp;&amp;rec=rec1" target="_blank" rel="noopener">http://localhost:88/control/record/stop?app=live&amp;name=test&amp;&amp;rec=rec1</a> 断开录制流名为test，且在录制机rec1下面的流<br>redirect<br>curl <a href="http://localhost:88/control/record/publisher?app=live&amp;name=test&amp;newname=test2" target="_blank" rel="noopener">http://localhost:88/control/record/publisher?app=live&amp;name=test&amp;newname=test2</a> 将推流为test的流名改成test2</p>
+<p>app为application后的名字，name为流名称，rec为配置的recorder后的名称</p>
 
       
 
@@ -224,24 +273,13 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线程池</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ffmpeg</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -291,7 +329,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/01/线程池底层/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/10/ffmpeg/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -305,18 +343,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/07/自定义注解/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          自定义注解
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/08/30/java设计模式-工厂模式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java设计模式--工厂模式</div>
+    <a href="/2019/12/10/流媒体服务器的学习及使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">流媒体服务器的学习及使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -343,7 +372,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#java线程池"><span class="toc-number">1.</span> <span class="toc-text">java线程池</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
