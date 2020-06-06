@@ -6,23 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://1096394463.github.io">
-  <title>@ControllerAdvice注解 | Q blogs</title>
+  <title>一场春秋梦春秋，蝶破空叹万事休 | Q blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="@ControllerAdvice，顾名思义，就是控制器增强，这个注解结合其他注解使得我们能够简化我们很多操作。">
-<meta name="keywords" content="注解">
+  <meta name="description" content="别看！！！">
+<meta name="keywords" content="四季山水">
 <meta property="og:type" content="article">
-<meta property="og:title" content="@ControllerAdvice注解">
-<meta property="og:url" content="https://1096394463.github.io/2020/01/08/ControllerAdvice注解/index.html">
+<meta property="og:title" content="一场春秋梦春秋，蝶破空叹万事休">
+<meta property="og:url" content="https://1096394463.github.io/2020/06/06/一场春秋梦春秋，蝶破空叹万事休/index.html">
 <meta property="og:site_name" content="Q blogs">
-<meta property="og:description" content="@ControllerAdvice，顾名思义，就是控制器增强，这个注解结合其他注解使得我们能够简化我们很多操作。">
+<meta property="og:description" content="别看！！！">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578468053589.png">
-<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578469524525.png">
-<meta property="og:updated_time" content="2020-06-05T05:19:57.164Z">
+<meta property="og:updated_time" content="2020-06-06T14:19:17.679Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="@ControllerAdvice注解">
-<meta name="twitter:description" content="@ControllerAdvice，顾名思义，就是控制器增强，这个注解结合其他注解使得我们能够简化我们很多操作。">
-<meta name="twitter:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578468053589.png">
+<meta name="twitter:title" content="一场春秋梦春秋，蝶破空叹万事休">
+<meta name="twitter:description" content="别看！！！">
   
     <link rel="alternative" href="/atom.xml" title="Q blogs" type="application/atom+xml">
   
@@ -166,53 +163,154 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ControllerAdvice注解" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-一场春秋梦春秋，蝶破空叹万事休" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      @ControllerAdvice注解
+      一场春秋梦春秋，蝶破空叹万事休
     </h1>
   
 
         
-        <a href="/2020/01/08/ControllerAdvice注解/" class="archive-article-date">
-  	<time datetime="2020-01-08T08:23:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-08</time>
+        <a href="/2020/06/06/一场春秋梦春秋，蝶破空叹万事休/" class="archive-article-date">
+  	<time datetime="2020-06-06T14:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>@ControllerAdvice，顾名思义，就是控制器增强，这个注解结合其他注解使得我们能够简化我们很多操作。</p>
+        <p>别看！！！</p>
 <a id="more"></a>
-<p>1.全局异常处理</p>
-<p>2.全局数据绑定</p>
-<p>3.全局数据预处理</p>
-<p>全局异常处理我会单开一贴进行记录，这里就只谈后面两种。</p>
-<p><strong>全局数据绑定</strong></p>
-<p>结合@ModelAttribute注解使用，我们可以将一些公共数据放在这里，让每一个controller都能够拿到</p>
-<p>代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@ControllerAdvicepublic </span><br><span class="line">class Test &#123;   </span><br><span class="line">@ModelAttribute(name = &quot;stringName&quot;)   //name为值的名字，默认则以返回值类型为名</span><br><span class="line">public String StringTest()&#123; </span><br><span class="line">return &quot;123321&quot;;    </span><br><span class="line">&#125;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Controller代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping</span><br><span class="line">public String test1(Model model)&#123;    </span><br><span class="line">return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>结果</p>
-<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578468053589.png" alt="1578468053589"></p>
-<p><strong>全局数据预处理</strong></p>
-<p>结合@InitBinder注解使用和WebDataBinder类（将请求request绑定到复杂属性时的请求字符string到属性的转换 ）</p>
-<p>当Controller接收数据时，如果两个对象中有一个同名字段，我们就没法直接接收了，但是通过全局数据预处理却可以轻松解决这个问题</p>
-<p>代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@InitBinder(&quot;b&quot;)</span><br><span class="line">public void b(WebDataBinder binder)&#123;    </span><br><span class="line">binder.setFieldDefaultPrefix(&quot;b.&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@InitBinder(&quot;a&quot;)</span><br><span class="line">public void a(WebDataBinder binder)&#123;</span><br><span class="line">binder.setFieldDefaultPrefix(&quot;a.&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Controller代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@PostMapping(&quot;/book&quot;)</span><br><span class="line">public void addBook(@ModelAttribute(&quot;b&quot;) Book book, @ModelAttribute(&quot;a&quot;) Author author) &#123;</span><br><span class="line">System.out.println(book);  </span><br><span class="line">System.out.println(author);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>结果</p>
-<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578469524525.png" alt="1578469524525"></p>
+<p>可我非那司马懿，恐扰你轻松与写意。</p>
+<p>此刻就是心动，下一刻便是心痛，不想感受它时就能感受到。</p>
+<p>那要看对你来说是好是坏了，坏的便竭尽全力拉你出来，如果拉不出来就与你一起掉入；好的便远远看着。</p>
+<p>不管是谁都好，只要你好，可如果能是我就更好了！</p>
+<p>很久以后，我来成为你的保护色。</p>
+<p>不，没有你的才是！</p>
+<p>真想看看是哪个小子这么幸运。</p>
+<p>哈哈，看来我们还真像啊。</p>
+<p>没看过诶，改天去看看。</p>
+<p>哪有那么相似的两个人。</p>
+<p>别动容了，赶紧冲啊！</p>
+<p>嗯，会开得五彩斑斓。</p>
+<p>我觉得这不叫逆袭。</p>
+<p>其实很多东西都是。</p>
+<p>恰好我脑容量还蛮大的，就喜欢替喜欢的人多想一想。</p>
+<p>你好，我叫时光。</p>
+<p>一起前行。</p>
+<p>巧了，我也喜欢</p>
+<p>所以我才会妥协。</p>
+<p>能说出这句话的，绝对不是坏人，也绝对不够逍遥。</p>
+<p>我会把它关在我的世界里，让它随意闯荡。</p>
+<p>麻烦找个大点的盒子。</p>
+<p>我背负月色入死寂 独守那寒冷墓地。</p>
+<p>那就慢慢走，管他时光如何</p>
+<p>没了稚气去了顽劣，背了责任追了梦想</p>
+<p>俯看深渊问大道，跃入幽涧观水妙，有朝龙啸黑潭中，沐雨翱翔在苍穹。</p>
+<p>眼清澈笑容无邪。</p>
+<p>But sometimes people always trouble trouble till trouble trouble you.</p>
+<p>酸辣开口，米粥养胃。</p>
+<p>有我在，塌不了。</p>
+<p>那就不跳不躲。</p>
+<p>时光的沙漠中同样存在着片片绿洲。</p>
+<p>不需要当，随心即可。</p>
+<p>你只知他溃不成军，却不知你已老将不保。</p>
+<p>要相信自己的眼光，更要相信自己。</p>
+<p>任何时期都会存在，不要忘了向前走即可。</p>
+<p>等人怎么了，等人其实是件很幸福的事，如果等的人马上就会出现，那就更幸福了。</p>
+<p>只要是你就好。</p>
+<p>我对你用情极深。</p>
+<p>嗯，那一定很精彩，很想看一看啊。</p>
+<p>不介意的话，我体温还挺高的，哈哈！</p>
+<p>你这更新频率，我是没得看咯</p>
+<p>别怕，还有更穷的时候。</p>
+<p>总会有人一起走，总会有人记得。</p>
+<p>其他都无所谓，我只想了解你！</p>
+<p>你是谁，他又是谁。</p>
+<p>这份想法足以让人佩服。</p>
+<p>痞子还好，不用压抑，我心湖里游曳的恶蛟才吓人，有朝一日定要斩了它。</p>
+<p>我比较贪心，什么样的你都想看。</p>
+<p>当你竭力想要忘掉一个人时，就已经忘不掉了，唯有时间无休止地冲刷才能使之褪色。</p>
+<p>为什么要剥，为什么要给人看，天底下没有这样的道理，真正想要看的人怎么都能看到的。</p>
+<p>就该如此，一定会有那么一个人的，而那个人也一定值得等的，只要不是等上一辈子就好。</p>
+<p>你睬我，心砰砰。<br>你弃我，心痛痛。<br>你说我，心念念。<br>你于我，遇见便是上上签。</p>
+<p>想看，哈哈。</p>
+<p>喂，你转身。</p>
+<p>你好我是…哦，不对，我不是。</p>
+<p>为啥我的悟性就这么差。</p>
+<p>你的心有一道墙。</p>
+<p>我的左心房，已是你的右心室。</p>
+<p>不用答应，无需回头，随心就好。</p>
+<p>你不是，就算你是，我也会。</p>
+<p>你总会遇到属于你的太阳。</p>
+<p>没有什么义务性的好坏，想好就好，想坏就坏。</p>
+<p>做不起也得做不是。</p>
+<p>月亮很亮，亮也没用，没用也亮，我喜欢你，喜欢也没用，没用也喜欢。</p>
+<p>我是一个喜欢听故事的男孩。</p>
+<p>被偏爱的总有恃无恐。</p>
+<p>光是看着这些文字就害怕。</p>
+<p>人间大美好，只是看看就极慰人心。</p>
+<p>真的能这么理性吗？</p>
+<p>好的，一定让你落回地面，不过可以先飞一会儿再说！</p>
+<p>回忆只是调味品，拼尽全力的过程已经很美。</p>
+<p>于其他事可能会有所摇摆，于你则不然。</p>
+<p>那天，我在站台前看到了一个酣睡的女孩，我想要叫醒她，但又怕扰她清梦。</p>
+<p>可是我迷惑了，不过那也无所谓。</p>
+<p>结果：依旧在好好学习，前凸后翘美长腿是有了，看起来也确实瘦，只是…</p>
+<p>一点儿不奇怪。</p>
+<p>无聊时请call我！</p>
+<p>那一定很正经。</p>
+<p>不存在其实也不是坏事。</p>
+<p>我就做那滤网拦在你心前。</p>
+<p>其实连做戏都不必。</p>
+<p>当你不再问这个问题时，就差不多了。</p>
+<p>人间从来无大事，从来无小事。</p>
+<p>那我陪你回家吃饭。</p>
+<p>把细碎的烦恼关掉，把月亮挂好，睡个好觉，晚安。</p>
+<p>我已提笔，不见明月。</p>
+<p>你看我头顶亮吗？</p>
+<p>现实正谱写着剧情，同样精彩万分。</p>
+<p>我有酒肉，你有故事吗？</p>
+<p>过去你，现在你，未来你，都可以</p>
+<p>那我就帮你吹掉那粒沙。</p>
+<p>我赏了两年，第三年却没有醉，只是有些恍惚。</p>
+<p>我已经沸腾了，在10000多公尺的海拔。</p>
+<p>哈哈，大家都是过来人。</p>
+<p>破而后立，相当难了。</p>
+<p>很美很温柔。</p>
+<p>静静听你唱，远远看你舞。</p>
+<p>有些事，你说了不算哦！</p>
+<p>是良人，再晚又何妨？</p>
+<p>这个世界乱糟糟的，而你干干净净，可以悬在我的心头，如那白月光。</p>
+<p>世间美景，美物，美事，一切美好，不总是美好，但总是让人觉得美好，要不，一起？</p>
+<p>我总是走神。</p>
+<p>其实不是坏事，但我总有一抹心酸。</p>
+<p>你越不喜欢一个人，你越能够信心百倍，轻而易举的吸引他，因为我们总是想把最完美的品质展现给我们深爱的人。</p>
+<p>随时间变化，过往的辛酸，味道也会变化，有的化为陈酿，有的早已变质，在某个微风习习的夜晚，细细品尝，也是人生一大幸事啊！</p>
+<p>哪种意义上的多？</p>
+<p>我想仔细的听一听</p>
+<p>我也想回“家”，不知要等多久，也许几年？十几年？还是几十年？。</p>
+<p>just do it.</p>
+<p>遇到有趣的人，就觉得生活一下子不烦了，困顿也好，磨难也罢，都想笑。</p>
+<p>不介意一起观赏吧！</p>
+<p>可惜…</p>
+<p>我是无名山水郎。</p>
+<p>一半火一半冰是极好的，让火燃烧你的热情，让冰坚硬你的狠心。</p>
+<p>好的，小王！</p>
+<p>人生就该不将就，人生可以不包容，人生总要有任性，无论怎样的你都是最好的你。</p>
+<p>很多人都喜欢拍照，可我从来不喜欢，我最想拍的照片只有一张。</p>
+<p>小傻子别哭，也不需要担忧，事不过三嘛。</p>
+<p>敢试试？</p>
+<p>随缘自在，不悲不喜。</p>
+<p>有多美？</p>
+<p>梦中身负九品官服立马前，见你一席凤冠霞帔入我怀。</p>
+<p>西湖歌舞几时休。</p>
+<p>看起来很简单，但真的很难。</p>
+<p>目标总会实现，同志只管前行。</p>
 
       
 
@@ -247,7 +345,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">注解</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">四季山水</a>
         		</li>
       		
 		</ul>
@@ -259,7 +357,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        			<a href="/categories/wlog//" class="article-tag-list-link color5">wlog</a>
         		</li>
       		
 		</ul>
@@ -314,7 +412,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://1096394463.github.io/2020/01/08/ControllerAdvice注解/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://1096394463.github.io/2020/06/06/一场春秋梦春秋，蝶破空叹万事休/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -328,18 +426,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/08/全局异常处理/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          全局异常处理
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/12/10/ffmpeg/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ffmpeg</div>
+    <a href="/2020/06/06/水彩画展/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">水彩画展</div>
       <i class="icon-circle-right"></i>
     </a>
   

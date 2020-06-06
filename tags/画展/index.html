@@ -6,23 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://1096394463.github.io">
-  <title>@ControllerAdvice注解 | Q blogs</title>
+  <title>Tag: 画展 | Q blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="@ControllerAdvice，顾名思义，就是控制器增强，这个注解结合其他注解使得我们能够简化我们很多操作。">
-<meta name="keywords" content="注解">
-<meta property="og:type" content="article">
-<meta property="og:title" content="@ControllerAdvice注解">
-<meta property="og:url" content="https://1096394463.github.io/2020/01/08/ControllerAdvice注解/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Q blogs">
+<meta property="og:url" content="https://1096394463.github.io/tags/画展/index.html">
 <meta property="og:site_name" content="Q blogs">
-<meta property="og:description" content="@ControllerAdvice，顾名思义，就是控制器增强，这个注解结合其他注解使得我们能够简化我们很多操作。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578468053589.png">
-<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578469524525.png">
-<meta property="og:updated_time" content="2020-06-05T05:19:57.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="@ControllerAdvice注解">
-<meta name="twitter:description" content="@ControllerAdvice，顾名思义，就是控制器增强，这个注解结合其他注解使得我们能够简化我们很多操作。">
-<meta name="twitter:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578468053589.png">
+<meta name="twitter:title" content="Q blogs">
   
     <link rel="alternative" href="/atom.xml" title="Q blogs" type="application/atom+xml">
   
@@ -166,226 +158,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ControllerAdvice注解" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      @ControllerAdvice注解
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/06/06/水彩画展/" class="archive-article-date">
+  	<time datetime="2020-06-06T14:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/06/06/水彩画展/">水彩画展</a>
     </h1>
   
 
-        
-        <a href="/2020/01/08/ControllerAdvice注解/" class="archive-article-date">
-  	<time datetime="2020-01-08T08:23:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>@ControllerAdvice，顾名思义，就是控制器增强，这个注解结合其他注解使得我们能够简化我们很多操作。</p>
-<a id="more"></a>
-<p>1.全局异常处理</p>
-<p>2.全局数据绑定</p>
-<p>3.全局数据预处理</p>
-<p>全局异常处理我会单开一贴进行记录，这里就只谈后面两种。</p>
-<p><strong>全局数据绑定</strong></p>
-<p>结合@ModelAttribute注解使用，我们可以将一些公共数据放在这里，让每一个controller都能够拿到</p>
-<p>代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@ControllerAdvicepublic </span><br><span class="line">class Test &#123;   </span><br><span class="line">@ModelAttribute(name = &quot;stringName&quot;)   //name为值的名字，默认则以返回值类型为名</span><br><span class="line">public String StringTest()&#123; </span><br><span class="line">return &quot;123321&quot;;    </span><br><span class="line">&#125;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Controller代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping</span><br><span class="line">public String test1(Model model)&#123;    </span><br><span class="line">return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>结果</p>
-<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578468053589.png" alt="1578468053589"></p>
-<p><strong>全局数据预处理</strong></p>
-<p>结合@InitBinder注解使用和WebDataBinder类（将请求request绑定到复杂属性时的请求字符string到属性的转换 ）</p>
-<p>当Controller接收数据时，如果两个对象中有一个同名字段，我们就没法直接接收了，但是通过全局数据预处理却可以轻松解决这个问题</p>
-<p>代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@InitBinder(&quot;b&quot;)</span><br><span class="line">public void b(WebDataBinder binder)&#123;    </span><br><span class="line">binder.setFieldDefaultPrefix(&quot;b.&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@InitBinder(&quot;a&quot;)</span><br><span class="line">public void a(WebDataBinder binder)&#123;</span><br><span class="line">binder.setFieldDefaultPrefix(&quot;a.&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Controller代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@PostMapping(&quot;/book&quot;)</span><br><span class="line">public void addBook(@ModelAttribute(&quot;b&quot;) Book book, @ModelAttribute(&quot;a&quot;) Author author) &#123;</span><br><span class="line">System.out.println(book);  </span><br><span class="line">System.out.println(author);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>结果</p>
-<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578469524525.png" alt="1578469524525"></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢支持<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">注解</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">画展</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        			<a href="/categories/wlog//" class="article-tag-list-link color5">wlog</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://1096394463.github.io/2020/01/08/ControllerAdvice注解/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/01/08/全局异常处理/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          全局异常处理
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/12/10/ffmpeg/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ffmpeg</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    目录，不存在的…
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -408,9 +245,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
